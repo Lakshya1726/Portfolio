@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshya Aryan | Data Scientist & Quantitative Researcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader / Loading Screen -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <svg viewBox="0 0 100 100" class="preloader-circle">
+                    <circle cx="50" cy="50" r="45" class="circle-bg"/>
+                    <circle cx="50" cy="50" r="45" class="circle-progress"/>
+                </svg>
+                <span class="preloader-initials">LA</span>
+            </div>
+            <div class="preloader-text">
+                <div class="preloader-line">
+                    <span class="word" data-word="LAKSHYA">LAKSHYA</span>
+                </div>
+                <div class="preloader-line">
+                    <span class="word" data-word="ARYAN">ARYAN</span>
+                </div>
+            </div>
+            <div class="preloader-counter">
+                <span class="counter-number">0</span>
+                <span class="counter-percent">%</span>
+            </div>
+            <div class="preloader-tagline">Data Scientist & Quantitative Researcher</div>
+        </div>
+        <div class="preloader-overlay"></div>
+    </div>
+
+    <!-- Magnetic Cursor -->
+    <div class="cursor" id="cursor">
+        <div class="cursor-dot"></div>
+    </div>
+    <div class="cursor-follower" id="cursorFollower">
+        <span class="cursor-text"></span>
+    </div>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas" class="particle-bg"></canvas>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- 3D Floating Geometric Shapes -->
+    <div class="floating-shapes-3d">
+        <div class="shape-3d cube">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <div class="shape-3d pyramid">
+            <div class="pyramid-face"></div>
+            <div class="pyramid-face"></div>
+            <div class="pyramid-face"></div>
+            <div class="pyramid-face"></div>
+            <div class="pyramid-base"></div>
+        </div>
+        <div class="shape-3d octahedron">
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+            <div class="octa-face"></div>
+        </div>
+        <div class="shape-3d torus"></div>
+        <div class="shape-3d dodecahedron"></div>
+    </div>
+
+    <!-- Virat Kohli Easter Egg -->
+    <div class="virat-easter-egg" id="viratEasterEgg">
+        <div class="virat-image-container">
+            <img src="viart.jpeg" alt="Virat Kohli" class="virat-img">
+            <div class="virat-number">18</div>
+            <div class="virat-glow"></div>
+        </div>
+        <div class="virat-quote">"Self-belief and hard work will always earn you success." - Virat Kohli</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="2" y="2" width="36" height="36" rx="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">LA</text>
+            </svg>
+        </div>
+        <div class="nav-controls">
+            <button class="sound-btn" id="soundBtn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <button class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Full Screen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-content">
+            <ul class="menu-links">
+                <li><a href="#home" data-text="Home">Home</a></li>
+                <li><a href="#about" data-text="About">About</a></li>
+                <li><a href="#experience" data-text="Experience">Experience</a></li>
+                <li><a href="#work" data-text="Work">Work</a></li>
+                <li><a href="#contact" data-text="Contact">Contact</a></li>
+            </ul>
+            <div class="menu-social">
+                <a href="https://github.com/Lakshya1726" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/lakshya-aryan-963115256/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:lakshya.aryan.cer22@iitbhu.ac.in"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Indicator -->
+    <div class="section-indicator">
+        <span class="current-section">01</span>
+        <div class="indicator-line"></div>
+        <span class="total-sections">05</span>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" data-section="hero">
+        <!-- 3D Parallax Layers -->
+        <div class="parallax-container">
+            <div class="parallax-layer layer-1" data-depth="0.1"></div>
+            <div class="parallax-layer layer-2" data-depth="0.3"></div>
+            <div class="parallax-layer layer-3" data-depth="0.5"></div>
+            <div class="parallax-layer layer-4" data-depth="0.8"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting-wrapper">
+                    <p class="hero-greeting reveal-text">Hi, my</p>
+                </div>
+                <div class="hero-name-wrapper">
+                    <h1 class="hero-name reveal-text">name is <span class="name-highlight magnetic-text">Lakshya.</span></h1>
+                </div>
+                <div class="hero-tagline-wrapper">
+                    <p class="hero-tagline reveal-text">I love turning data into actionable insights.</p>
+                </div>
+                <div class="hero-cta-wrapper">
+                    <a href="#contact" class="hero-cta magnetic-btn" data-cursor="View">
+                        <span class="btn-text">Get in touch</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-illustration">
+                    <!-- Quant Trading & AI Visual -->
+                    <div class="trading-scene">
+                        <!-- Animated Candlestick Chart -->
+                        <div class="candlestick-chart">
+                            <div class="candle green" style="--height: 60px; --delay: 0s;"></div>
+                            <div class="candle red" style="--height: 45px; --delay: 0.1s;"></div>
+                            <div class="candle green" style="--height: 80px; --delay: 0.2s;"></div>
+                            <div class="candle green" style="--height: 55px; --delay: 0.3s;"></div>
+                            <div class="candle red" style="--height: 40px; --delay: 0.4s;"></div>
+                            <div class="candle green" style="--height: 90px; --delay: 0.5s;"></div>
+                            <div class="candle red" style="--height: 35px; --delay: 0.6s;"></div>
+                            <div class="candle green" style="--height: 70px; --delay: 0.7s;"></div>
+                        </div>
+
+                        <!-- Neural Network Visualization -->
+                        <div class="neural-network">
+                            <div class="nn-layer input-layer">
+                                <div class="neuron"></div>
+                                <div class="neuron"></div>
+                                <div class="neuron"></div>
+                                <div class="neuron"></div>
+                            </div>
+                            <div class="nn-connections"></div>
+                            <div class="nn-layer hidden-layer">
+                                <div class="neuron active"></div>
+                                <div class="neuron"></div>
+                                <div class="neuron active"></div>
+                                <div class="neuron"></div>
+                                <div class="neuron active"></div>
+                            </div>
+                            <div class="nn-connections"></div>
+                            <div class="nn-layer output-layer">
+                                <div class="neuron active"></div>
+                                <div class="neuron"></div>
+                            </div>
+                        </div>
+
+                        <!-- Trading Terminal -->
+                        <div class="trading-terminal">
+                            <div class="terminal-header">
+                                <span class="terminal-dot red"></span>
+                                <span class="terminal-dot yellow"></span>
+                                <span class="terminal-dot green"></span>
+                                <span class="terminal-title">quant_strategy.py</span>
+                            </div>
+                            <div class="terminal-body">
+                                <div class="code-line"><span class="keyword">def</span> <span class="function">alpha_signal</span>(data):</div>
+                                <div class="code-line indent"><span class="keyword">return</span> sharpe_ratio * momentum</div>
+                                <div class="code-line"><span class="comment"># Returns: 54.06%</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Data Points -->
+                        <div class="data-point dp-1">+2.4%</div>
+                        <div class="data-point dp-2">BUY</div>
+                        <div class="data-point dp-3">α=0.67</div>
+
+                        <!-- AI Brain Icon -->
+                        <div class="ai-brain">
+                            <i class="fas fa-brain"></i>
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring delay"></div>
+                        </div>
+
+                        <!-- Floating Icons -->
+                        <div class="floating-icon icon-1"><i class="fas fa-chart-line"></i></div>
+                        <div class="floating-icon icon-2"><i class="fas fa-robot"></i></div>
+                        <div class="floating-icon icon-3"><i class="fas fa-microchip"></i></div>
+                        <div class="floating-icon icon-4"><i class="fas fa-network-wired"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="mouse-icon">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-section="about">
+        <div class="section-bg-text">ABOUT</div>
+        <div class="container">
+            <div class="about-layout">
+                <!-- Profile Card with Futuristic Frame -->
+                <div class="about-card profile-card futuristic-card">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+                    <div class="profile-avatar">
+                        <div class="avatar-frame">
+                            <img src="prff.jpeg" alt="Lakshya Aryan" class="profile-img">
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="info-item">
+                            <span class="info-label">Name:</span>
+                            <span class="info-value">Lakshya Aryan</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">College:</span>
+                            <span class="info-value">IIT BHU</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">From:</span>
+                            <span class="info-value">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Card - Terminal Style -->
+                <div class="about-card skills-card futuristic-card terminal-skills">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <!-- Terminal Header -->
+                    <div class="terminal-window-header">
+                        <div class="terminal-dots">
+                            <span class="t-dot red"></span>
+                            <span class="t-dot yellow"></span>
+                            <span class="t-dot green"></span>
+                        </div>
+                        <span class="terminal-filename">>_ skills.py</span>
+                    </div>
+
+                    <!-- Terminal Body -->
+                    <div class="terminal-skills-body">
+                        <div class="code-class"><span class="keyword">class</span> <span class="class-name">TechnicalSkills</span>:</div>
+
+                        <div class="skill-code-item">
+                            <div class="skill-code-line">
+                                <span class="self">self</span>.<span class="var-name">python_skills</span> <span class="equals">=</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-comment"># Python & Automation</div>
+                            <div class="skill-bar-terminal"><div class="skill-progress-terminal" data-width="95%"></div></div>
+                        </div>
+
+                        <div class="skill-code-item">
+                            <div class="skill-code-line">
+                                <span class="self">self</span>.<span class="var-name">sql_expertise</span> <span class="equals">=</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-comment"># SQL & Database Management</div>
+                            <div class="skill-bar-terminal"><div class="skill-progress-terminal" data-width="90%"></div></div>
+                        </div>
+
+                        <div class="skill-code-item">
+                            <div class="skill-code-line">
+                                <span class="self">self</span>.<span class="var-name">machine_learning</span> <span class="equals">=</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-comment"># Machine Learning & Deep Learning</div>
+                            <div class="skill-bar-terminal"><div class="skill-progress-terminal" data-width="88%"></div></div>
+                        </div>
+
+                        <div class="skill-code-item">
+                            <div class="skill-code-line">
+                                <span class="self">self</span>.<span class="var-name">data_analysis</span> <span class="equals">=</span>
+                                <span class="skill-percent">92%</span>
+                            </div>
+                            <div class="skill-comment"># Data Science & Analytics</div>
+                            <div class="skill-bar-terminal"><div class="skill-progress-terminal" data-width="92%"></div></div>
+                        </div>
+
+                        <div class="skill-code-item">
+                            <div class="skill-code-line">
+                                <span class="self">self</span>.<span class="var-name">gen_ai_llms</span> <span class="equals">=</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-comment"># Gen AI & Large Language Models</div>
+                            <div class="skill-bar-terminal"><div class="skill-progress-terminal" data-width="85%"></div></div>
+                        </div>
+
+                        <div class="skill-code-item">
+                            <div class="skill-code-line">
+                                <span class="self">self</span>.<span class="var-name">quant_finance</span> <span class="equals">=</span>
+                                <span class="skill-percent">87%</span>
+                            </div>
+                            <div class="skill-comment"># Quantitative Finance & Trading</div>
+                            <div class="skill-bar-terminal"><div class="skill-progress-terminal" data-width="87%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Text Card -->
+                <div class="about-card about-text-card futuristic-card">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+                    <h3 class="card-title">ABOUT</h3>
+                    <div class="about-item">
+                        <div class="about-icon"><i class="fas fa-user-graduate"></i></div>
+                        <p>
+                            I'm a <span class="highlight">Data Scientist</span> and <span class="highlight">Quantitative Researcher/Analyst</span>
+                            currently pursuing B.Tech at IIT (BHU) Varanasi. I specialize in building ML models,
+                            developing algorithmic trading strategies, and creating data-driven solutions.
+                        </p>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-icon"><i class="fas fa-heart"></i></div>
+                        <p>
+                            I've also explored <span class="highlight">Product Analytics</span>, working on projects like
+                            hyperlocal street food app strategy, train reservation systems, and supply chain analytics
+                            with interactive dashboards.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hologram Visual -->
+                <div class="about-visual">
+                    <div class="hologram-container">
+                        <div class="hologram-base"></div>
+                        <div class="hologram-figure">
+                            <div class="hologram-grid"></div>
+                            <div class="hologram-person">
+                                <div class="h-head"></div>
+                                <div class="h-body"></div>
+                                <div class="h-legs"></div>
+                            </div>
+                        </div>
+                        <div class="hologram-light"></div>
+                        <div class="hologram-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                        <div class="bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience" data-section="experience">
+        <div class="section-bg-text">EXPERIENCE</div>
+        <div class="container">
+            <h2 class="section-title split-text">Experience</h2>
+            <div class="timeline perspective-container">
+                <div class="timeline-item timeline-3d">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content timeline-card-3d">
+                        <div class="timeline-header">
+                            <h3>Quantitative Researcher</h3>
+                            <span class="company">AR Financial Securities</span>
+                            <span class="duration">Jun 2025 - Sep 2025</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Enhanced option pricing accuracy using Variance Gamma model beyond Black-Scholes</li>
+                            <li>Processed data for 2,500+ stocks and built dashboards for actionable insights</li>
+                            <li>Designed KAMA-based portfolio construction strategy for improved metrics</li>
+                        </ul>
+                        <div class="timeline-badge">Star Quant of the Month</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-3d">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content timeline-card-3d">
+                        <div class="timeline-header">
+                            <h3>Quantitative ML Developer</h3>
+                            <span class="company">Springpad Wealth</span>
+                            <span class="duration">May 2025 - Jun 2025</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Built ML models (Random Forest, XGBoost) for Nifty & BankNifty forecasting</li>
+                            <li>Designed Z-score mean-reversion pairs trading strategy on Gold vs. Silver</li>
+                            <li>Delivered 54.06% returns with Sharpe 0.67 and -16.86% max drawdown</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-3d">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content timeline-card-3d">
+                        <div class="timeline-header">
+                            <h3>Product Analyst Intern</h3>
+                            <span class="company">Gwing Software Technologies</span>
+                            <span class="duration">Dec 2024 - Jan 2025</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Analyzed user behavior using SQL & Python to identify key product pain points</li>
+                            <li>Synthesized competitive analysis & 200+ user feedback for actionable insights</li>
+                            <li>Built Tableau & Power BI dashboards tracking core KPIs for product decisions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-3d">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content timeline-card-3d">
+                        <div class="timeline-header">
+                            <h3>Data Science Intern</h3>
+                            <span class="company">NullClass Ed-Tech</span>
+                            <span class="duration">May 2024 - Jun 2024</span>
+                        </div>
+                        <ul class="timeline-details">
+                            <li>Built Random Forest resume screening app with 85.8% accuracy</li>
+                            <li>Implemented AI-powered real-time style transfer using TensorFlow Hub</li>
+                            <li>Added resolution control for adjustable image quality outputs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work/Projects Section -->
+    <section id="work" class="work" data-section="work">
+        <div class="section-bg-text">WORK</div>
+        <div class="container">
+            <h2 class="section-title split-text">Portfolio</h2>
+            <p class="section-subtitle">Some things I've worked on</p>
+
+            <div class="projects-showcase">
+                <!-- Featured Project 1 -->
+                <div class="project-card featured tilt-card" data-cursor="View Project">
+                    <div class="project-card-inner">
+                        <div class="project-card-shine"></div>
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Quantitative Finance</span>
+                            <h3>Price Action Trading Strategy</h3>
+                            <p>Built a price-action signal system achieving 99.8% retracement accuracy across 60+ Indian equities for Inter-IIT Tech Meet.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>Statistics</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="magnetic-btn"><i class="fab fa-github"></i></a>
+                                <a href="#" class="magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Project 2 -->
+                <div class="project-card featured tilt-card" data-cursor="View Project">
+                    <div class="project-card-inner">
+                        <div class="project-card-shine"></div>
+                        <div class="project-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Systems Programming</span>
+                            <h3>Trade Matching Engine</h3>
+                            <p>High-performance order matching system for crypto with FIFO algorithm. O(1) cancel/execute using Red-Black trees.</p>
+                            <div class="project-tech">
+                                <span>C++</span>
+                                <span>STL</span>
+                                <span>Multithreading</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="magnetic-btn"><i class="fab fa-github"></i></a>
+                                <a href="#" class="magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Project 3 -->
+                <div class="project-card featured tilt-card" data-cursor="View Project">
+                    <div class="project-card-inner">
+                        <div class="project-card-shine"></div>
+                        <div class="project-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Product Analytics</span>
+                            <h3>SupplySight - Supply Chain Analytics</h3>
+                            <p>Analyzed supply chain operations with feature engineering. Built interactive Tableau dashboards for profit trends and inventory insights.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Tableau</span>
+                                <span>SQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="magnetic-btn"><i class="fab fa-github"></i></a>
+                                <a href="#" class="magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Project 4 -->
+                <div class="project-card featured tilt-card" data-cursor="View Project">
+                    <div class="project-card-inner">
+                        <div class="project-card-shine"></div>
+                        <div class="project-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">AI/NLP</span>
+                            <h3>JurisMind - Legal Document Analyzer</h3>
+                            <p>AI-powered legal research tool with semantic search and automated summarization. Multi-format document support.</p>
+                            <div class="project-tech">
+                                <span>Streamlit</span>
+                                <span>LangChain</span>
+                                <span>Transformers</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="magnetic-btn"><i class="fab fa-github"></i></a>
+                                <a href="#" class="magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Projects -->
+            <h3 class="other-title">Other Projects</h3>
+            <div class="other-projects">
+                <div class="mini-project flip-card-3d">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="mini-icon"><i class="fas fa-chart-bar"></i></div>
+                            <h4>VIX Estimation Calculator</h4>
+                            <p>End-to-end VIX computation using CBOE methodology</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="mini-tech">Python, NumPy</span>
+                            <p class="flip-detail">Real-time volatility index calculation with live market data integration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-project flip-card-3d">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="mini-icon"><i class="fas fa-traffic-light"></i></div>
+                            <h4>Delhi Traffic Prediction</h4>
+                            <p>ML model with MAE 0.01 for traffic forecasting</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="mini-tech">Scikit-Learn, Random Forest</span>
+                            <p class="flip-detail">Predictive analytics for urban traffic management systems</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-project flip-card-3d">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="mini-icon"><i class="fas fa-utensils"></i></div>
+                            <h4>Hyperlocal Food App Strategy</h4>
+                            <p>Product strategy for street food delivery platform</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="mini-tech">Product Analytics, SQL</span>
+                            <p class="flip-detail">Go-to-market strategy with user acquisition metrics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-project flip-card-3d">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="mini-icon"><i class="fas fa-train"></i></div>
+                            <h4>Train Reservation System</h4>
+                            <p>Database design and SQL analytics for bookings</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="mini-tech">SQL, Database Design</span>
+                            <p class="flip-detail">Optimized query performance for high-throughput bookings</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-project flip-card-3d">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="mini-icon"><i class="fas fa-robot"></i></div>
+                            <h4>Arqvest - AI Investment Assistant</h4>
+                            <p>AI-powered investment research and portfolio analysis tool</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="mini-tech">Gen AI, LLMs, Python</span>
+                            <p class="flip-detail">Semantic search across financial documents with RAG</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-project flip-card-3d">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="mini-icon"><i class="fas fa-microphone"></i></div>
+                            <h4>AudioText</h4>
+                            <p>Audio to text conversion utility for transcription</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <span class="mini-tech">Python, Speech Recognition</span>
+                            <p class="flip-detail">Multi-language support with speaker diarization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divine Roots - IIT BHU & Mahakal Section -->
+    <section class="divine-roots" id="roots">
+        <div class="divine-overlay"></div>
+        <div class="divine-image-container">
+            <img src="iitbhu.jpeg" alt="IIT BHU & Mahakal" class="divine-image">
+        </div>
+        <div class="divine-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="divine-content">
+            <div class="om-symbol">ॐ</div>
+            <h2 class="divine-title">Rooted in <span class="divine-highlight">Kashi</span></h2>
+            <p class="divine-subtitle">Where Ancient Wisdom Meets Modern Innovation</p>
+            <div class="divine-quote">
+                <span class="quote-mark">"</span>
+                The city of Lord Shiva, the sacred Ganges, and IIT BHU - where I learned that true success comes from the fusion of <em>discipline, devotion, and data</em>.
+                <span class="quote-mark">"</span>
+            </div>
+            <div class="divine-stats">
+                <div class="divine-stat">
+                    <span class="stat-icon"><i class="fas fa-om"></i></span>
+                    <span class="stat-label">Blessed by Bholenath</span>
+                </div>
+                <div class="divine-stat">
+                    <span class="stat-icon"><i class="fas fa-university"></i></span>
+                    <span class="stat-label">IIT BHU Varanasi</span>
+                </div>
+                <div class="divine-stat">
+                    <span class="stat-icon"><i class="fas fa-water"></i></span>
+                    <span class="stat-label">Banks of Ganga</span>
+                </div>
+            </div>
+        </div>
+        <div class="divine-aura"></div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-scroll">
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-star"></i></div>
+                    <h4>Star Quant</h4>
+                    <p>of the Month</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-medal"></i></div>
+                    <h4>National Runner-up</h4>
+                    <p>Quantalytics IIT Jodhpur</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Excellence Award</h4>
+                    <p>ML Program, IIT Guwahati</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-code"></i></div>
+                    <h4>LeetCode 1744</h4>
+                    <p>Max Rating</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-robot"></i></div>
+                    <h4>HCL Hackathon</h4>
+                    <p>PPO as Sr. AI Scientist</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-trophy"></i></div>
+                    <h4>National Winner</h4>
+                    <p>Veritas'23 IIM Calcutta</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-award"></i></div>
+                    <h4>National Top 20</h4>
+                    <p>Smart-Beta, IIM Rohtak</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Finalist</h4>
+                    <p>Impactify, IIT BHU</p>
+                </div>
+                <div class="achievement-badge">
+                    <div class="badge-icon"><i class="fab fa-amazon"></i></div>
+                    <h4>Selected</h4>
+                    <p>Amazon ML Summer School 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-section="contact">
+        <div class="section-bg-text">CONTACT</div>
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title split-text">Get In Touch</h2>
+                <p class="contact-text reveal-text">
+                    I'm currently looking for opportunities in Data Science, Quantitative Research, and Product Analytics.
+                    Feel free to reach out!
+                </p>
+                <a href="mailto:lakshya.aryan.cer22@iitbhu.ac.in" class="contact-btn magnetic-btn" data-cursor="Email Me">
+                    <span class="btn-text">Say Hello</span>
+                    <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                </a>
+                <div class="contact-info">
+                    <a href="tel:9897983015"><i class="fas fa-phone"></i> +91 9897983015</a>
+                    <a href="mailto:lakshya.aryan.cer22@iitbhu.ac.in"><i class="fas fa-envelope"></i> lakshya.aryan.cer22@iitbhu.ac.in</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Lakshya1726" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lakshya-aryan-963115256/" target="_blank" class="social-btn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:lakshya.aryan.cer22@iitbhu.ac.in" class="social-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Designed & Built by Lakshya Aryan</p>
+        <p>IIT (BHU) Varanasi | B.Tech 2022-2026</p>
+        <p class="easter-hint">Type <span class="magic-hint">18</span> for some magic</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
