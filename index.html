@@ -1,322 +1,540 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lakshya Aryan | Data Scientist & AI Engineer</title>
-    <link rel="stylesheet" href="styles.css?v=2">
-    <!-- Premium Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Noise Overlay Texture -->
-    <div class="noise-overlay"></div>
+    <title>Lakshya Aryan, Software Engineer</title>
+    
+    <!-- External Libraries (Lenis for smooth scroll, GSAP for animations) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- Custom Cursor -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&family=Archivo:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased loading">
+
+    <!-- Magnetic Custom Cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-logo">LA</div>
-        <button class="menu-btn" id="menuBtn">
-            MENU
-        </button>
+    <!-- Floating Header -->
+    <header class="floating-header reveal-blur" data-speed="0.9">
+        <a href="#hero" class="header-pill magnetic-btn">
+            <span class="header-name">Lakshya Aryan</span>
+            <span class="header-dot"></span>
+        </a>
+    </header>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle reveal-blur magnetic-btn" id="themeToggle" aria-label="Switch theme">
+        <span class="theme-toggle-bg"></span>
+        <span class="theme-toggle-ring"></span>
+        <span class="theme-toggle-icon">
+            <svg viewBox="0 0 100 100" class="theme-svg">
+                <defs>
+                    <radialGradient id="sunGrad" cx="50%" cy="42%" r="62%">
+                        <stop offset="0%" stop-color="#fff7e8" />
+                        <stop offset="44%" stop-color="#ffd27a" />
+                        <stop offset="100%" stop-color="#f2a046" />
+                    </radialGradient>
+                    <radialGradient id="sunHalo" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="rgba(255,206,128,0.55)" />
+                        <stop offset="55%" stop-color="rgba(255,176,92,0.16)" />
+                        <stop offset="100%" stop-color="rgba(255,176,92,0)" />
+                    </radialGradient>
+                    <radialGradient id="moonGrad" cx="38%" cy="36%" r="72%">
+                        <stop offset="0%" stop-color="#fbf8f1" />
+                        <stop offset="58%" stop-color="#e7e6df" />
+                        <stop offset="100%" stop-color="#c6cad4" />
+                    </radialGradient>
+                    <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="rgba(205,216,242,0.5)" />
+                        <stop offset="55%" stop-color="rgba(158,176,222,0.16)" />
+                        <stop offset="100%" stop-color="rgba(158,176,222,0)" />
+                    </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="49" fill="url(#sunHalo)" class="sun-halo"></circle>
+                <circle cx="50" cy="50" r="49" fill="url(#moonHalo)" class="moon-halo"></circle>
+                <g class="stars">
+                    <circle cx="20" cy="28" r="1.5" fill="#fbf8f1"></circle>
+                    <circle cx="82" cy="24" r="1.1" fill="#fbf8f1"></circle>
+                    <circle cx="84" cy="66" r="1" fill="#fbf8f1"></circle>
+                </g>
+                <g class="sun-rays">
+                    <line x1="74" y1="50" x2="81" y2="50" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="70.78" y1="62" x2="76.84" y2="65.5" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="62" y1="70.78" x2="65.5" y2="76.84" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="50" y1="74" x2="50" y2="81" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="38" y1="70.78" x2="34.5" y2="76.84" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="29.21" y1="62" x2="23.15" y2="65.5" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="26" y1="50" x2="19" y2="50" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="29.21" y1="38" x2="23.15" y2="34.5" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="38" y1="29.21" x2="34.5" y2="23.15" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="50" y1="26" x2="50" y2="19" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="62" y1="29.21" x2="65.5" y2="23.15" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                    <line x1="70.78" y1="38" x2="76.84" y2="34.5" stroke="#ffce80" stroke-width="2.4" stroke-linecap="round"></line>
+                </g>
+                <circle cx="50" cy="50" r="16" fill="url(#sunGrad)" class="sun-core"></circle>
+                <g class="moon-core">
+                    <circle cx="50" cy="50" r="16" fill="url(#moonGrad)"></circle>
+                    <circle cx="44" cy="45" r="3.1" fill="rgba(150,160,186,0.34)"></circle>
+                    <circle cx="56.5" cy="52" r="2.1" fill="rgba(150,160,186,0.3)"></circle>
+                    <circle cx="48.5" cy="57.5" r="1.5" fill="rgba(150,160,186,0.28)"></circle>
+                </g>
+            </svg>
+        </span>
+        <span class="theme-label">
+            <span class="theme-label-day">Day</span>
+            <span class="theme-label-sep">/</span>
+            <span class="theme-label-night">Night</span>
+        </span>
+    </button>
+
+    <!-- TOC Rail -->
+    <nav class="toc-rail reveal-blur">
+        <div class="toc-rail-inner">
+            <span class="toc-rail-spotlight" id="tocSpotlight"></span>
+            <a href="#hero" class="toc-rail-item active magnetic-text"><span class="num">00</span><span class="tick"></span><span class="label">Intro</span></a>
+            <a href="#origin" class="toc-rail-item magnetic-text"><span class="num">01</span><span class="tick"></span><span class="label">Background</span></a>
+            <a href="#education" class="toc-rail-item magnetic-text"><span class="num">02</span><span class="tick"></span><span class="label">Education</span></a>
+            <a href="#experience" class="toc-rail-item magnetic-text"><span class="num">03</span><span class="tick"></span><span class="label">Experience</span></a>
+            <a href="#products" class="toc-rail-item magnetic-text"><span class="num">04</span><span class="tick"></span><span class="label">Products</span></a>
+            <a href="#toolkit" class="toc-rail-item magnetic-text"><span class="num">05</span><span class="tick"></span><span class="label">Toolkit</span></a>
+            <a href="#roots" class="toc-rail-item magnetic-text"><span class="num">06</span><span class="tick"></span><span class="label">Roots</span></a>
+            <a href="#contact" class="toc-rail-item magnetic-text"><span class="num">07</span><span class="tick"></span><span class="label">Contact</span></a>
+        </div>
     </nav>
 
-    <!-- Fullscreen Menu -->
-    <div class="fullscreen-menu" id="fullscreenMenu">
-        <ul class="menu-links">
-            <li><a href="#home" class="menu-item">HOME</a></li>
-            <li><a href="#about" class="menu-item">ABOUT</a></li>
-            <li><a href="#experience" class="menu-item">EXPERIENCE</a></li>
-            <li><a href="#work" class="menu-item">WORK</a></li>
-            <li><a href="#contact" class="menu-item">CONTACT</a></li>
-        </ul>
-    </div>
+    <main class="main-content" id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <!-- HERO PARALLAX -->
+            <section id="hero" class="hero-section section-detect">
+                <!-- Parallax Background Image -->
+                <div class="hero-parallax-bg" id="heroBg">
+                    <img src="hero_sky.png" alt="Cinematic Night Sky">
+                    <div class="hero-overlay"></div>
+                </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero container">
-        <div class="reveal-text-mask">
-            <h1 class="hero-title reveal-text-inner">LAKSHYA <br>ARYAN.</h1>
+                <div class="hero-container">
+                    <div class="hero-title-block">
+                        <h1 class="hero-title gs-reveal">
+                            <span class="block">Lakshya</span>
+                            <span class="block">Aryan</span>
+                        </h1>
+                        <p class="hero-subtitle-mobile gs-reveal">Software engineer</p>
+                    </div>
+                    
+                    <div class="hero-desc-block gs-reveal">
+                        <p class="hero-subtitle">Software engineer</p>
+                        <p class="hero-desc">Data Scientist, AI Engineer & Quantitative Researcher pushing boundaries in Machine Learning and Finance.</p>
+                        <div style="margin-top: 30px;">
+                            <a href="#contact" class="contact-btn magnetic-btn">
+                                <span>Get in touch</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L8 3m5 5l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ORIGIN / BACKGROUND -->
+            <section id="origin" class="origin-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header reveal-blur">
+                        <div class="eyebrow">
+                            <span class="num">01</span><span class="rule"></span><span>Background & Working Style</span>
+                        </div>
+                        <h2 class="section-title">A software engineer <span class="italic-highlight">who thinks in systems</span></h2>
+                    </div>
+
+                    <div class="marquee-band reveal-blur">
+                        <span class="marquee-label">→ Disciplines</span>
+                        <div class="marquee-track-container">
+                            <div class="mq-track">
+                                <span class="mq-item">Data Science <span class="mq-dot">·</span></span>
+                                <span class="mq-item">AI Engineering <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Quant Finance <span class="mq-dot">·</span></span>
+                                <span class="mq-item">C++ Low-Latency <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Next.js & React <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Machine Learning <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Agentic AI <span class="mq-dot">·</span></span>
+                            </div>
+                            <div class="mq-track" aria-hidden="true">
+                                <span class="mq-item">Data Science <span class="mq-dot">·</span></span>
+                                <span class="mq-item">AI Engineering <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Quant Finance <span class="mq-dot">·</span></span>
+                                <span class="mq-item">C++ Low-Latency <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Next.js & React <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Machine Learning <span class="mq-dot">·</span></span>
+                                <span class="mq-item">Agentic AI <span class="mq-dot">·</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="split-layout reveal-blur">
+                        <div class="split-left">
+                            <p class="drop-cap-text">My work bridges the gap between complex artificial intelligence systems and scalable enterprise solutions. From building AI-powered mock interview platforms to engineering low-latency quant trading algorithms, I thrive on solving difficult problems.</p>
+                            
+                            <p class="body-text">I build the systems people count on: AI-powered platforms that analyze resumes, algorithms that predict market movements, and matching engines that process trades instantly. I care about the underlying data and the architectures that make it scale.</p>
+                            
+                            <div class="signature-block">
+                                <span class="sig-slash">/</span>
+                                <span class="sig-name">Lakshya Aryan</span>
+                                <span class="sig-title">· Data Scientist & AI Engineer</span>
+                            </div>
+                        </div>
+
+                        <aside class="split-right">
+                            <!-- Fully visible photo as requested with 3D tilt -->
+                            <div class="portrait-container tilt-3d reveal-blur">
+                                <div class="tilt-inner" style="width: 100%; height: 100%;">
+                                    <img src="lakshya.jpg" alt="Lakshya Aryan portrait" class="portrait-img">
+                                </div>
+                            </div>
+
+                            <div class="vitals-header">
+                                <span class="vitals-title">Vitals</span>
+                                <span class="vitals-vol">Vol. 01 · '26</span>
+                            </div>
+
+                            <dl class="vitals-list">
+                                <div class="vital-row">
+                                    <dt>Currently</dt>
+                                    <dd>
+                                        <span class="vital-val">B.Tech Student</span>
+                                        <span class="vital-desc">IIT (BHU) Varanasi</span>
+                                    </dd>
+                                </div>
+                                <div class="vital-row">
+                                    <dt>Previously</dt>
+                                    <dd>
+                                        <span class="vital-val">AI Engineer Intern</span>
+                                        <span class="vital-desc">Ekam Internet LLP</span>
+                                    </dd>
+                                </div>
+                                <div class="vital-row">
+                                    <dt>Based in</dt>
+                                    <dd>
+                                        <span class="vital-val">Varanasi / India</span>
+                                        <span class="vital-desc">25.2677° N · 82.9913° E</span>
+                                    </dd>
+                                </div>
+                                <div class="vital-row">
+                                    <dt>Open to</dt>
+                                    <dd>
+                                        <span class="vital-val">Data Science · AI Eng</span>
+                                        <span class="vital-desc">Roles with real ownership</span>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section id="education" class="edu-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header reveal-blur">
+                        <div class="eyebrow">
+                            <span class="num">02</span><span class="rule"></span><span>Foundation</span>
+                        </div>
+                        <h2 class="section-title">Education</h2>
+                    </div>
+
+                    <div class="edu-card tilt-3d reveal-blur">
+                        <div class="tilt-inner edu-inner">
+                            <div class="edu-logo">🏛️</div>
+                            <div class="edu-info">
+                                <h3>Indian Institute Of Technology Varanasi (BHU)</h3>
+                                <p>Bachelor of Technology | 2022 – 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section id="experience" class="exp-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header reveal-blur">
+                        <div class="eyebrow">
+                            <span class="num">03</span><span class="rule"></span><span>Track Record</span>
+                        </div>
+                        <h2 class="section-title">Experience</h2>
+                    </div>
+
+                    <div class="exp-timeline reveal-blur">
+                        <!-- Exp 1 -->
+                        <div class="exp-card hover-target">
+                            <div class="exp-date">Dec 2025 — Jan 2026</div>
+                            <h3 class="exp-role">AI Engineer Intern</h3>
+                            <h4 class="exp-company">Ekam Internet LLP</h4>
+                            <ul class="exp-details-list">
+                                <li>Implemented AI-powered product features using Claude Code, completing assigned Jira tasks.</li>
+                                <li>Built full-stack integrations and automated workflows using Zapier and N8N across multiple business systems.</li>
+                                <li>Implemented Aadhaar verification, document processing pipelines, and scalable APIs for enterprise applications.</li>
+                            </ul>
+                        </div>
+                        <!-- Exp 2 -->
+                        <div class="exp-card hover-target">
+                            <div class="exp-date">Jun 2025 — Sep 2025</div>
+                            <h3 class="exp-role">Quantitative Researcher Intern</h3>
+                            <h4 class="exp-company">AR Financial Securities</h4>
+                            <ul class="exp-details-list">
+                                <li>Enhanced option pricing accuracy using Variance Gamma model beyond Black-Scholes assumptions.</li>
+                                <li>Processed data for 2,500+ stocks and built analytical dashboards for market research and strategy evaluation.</li>
+                                <li>Developed a KAMA-based portfolio construction strategy across diversified equity universes.</li>
+                            </ul>
+                        </div>
+                        <!-- Exp 3 -->
+                        <div class="exp-card hover-target">
+                            <div class="exp-date">May 2025 — Jun 2025</div>
+                            <h3 class="exp-role">Quantitative ML Developer Intern</h3>
+                            <h4 class="exp-company">SPRINGPAD WEALTH</h4>
+                            <ul class="exp-details-list">
+                                <li>Built machine learning models using Random Forest and XGBoost to predict Nifty and BankNifty movements.</li>
+                                <li>Designed and evaluated a Z-score based forecasting pipeline on Gold-Silver datasets spanning five years.</li>
+                                <li>Performed model validation and backtesting using risk-adjusted performance metrics and drawdown analysis.</li>
+                            </ul>
+                        </div>
+                        <!-- Exp 4 -->
+                        <div class="exp-card hover-target">
+                            <div class="exp-date">Dec 2024 — Jan 2025</div>
+                            <h3 class="exp-role">Product Analyst Intern</h3>
+                            <h4 class="exp-company">Gwing Software Technologies</h4>
+                            <ul class="exp-details-list">
+                                <li>Analyzed user behavior using SQL & Python to identify key product pain points.</li>
+                                <li>Synthesized competitive analysis & 200+ user feedback for actionable insights.</li>
+                                <li>Built Tableau & Power BI dashboards tracking core KPIs for product decisions.</li>
+                            </ul>
+                        </div>
+                        <!-- Exp 5 -->
+                        <div class="exp-card hover-target">
+                            <div class="exp-date">May 2024 — Jun 2024</div>
+                            <h3 class="exp-role">Data Science Intern</h3>
+                            <h4 class="exp-company">NullClass Ed-Tech</h4>
+                            <ul class="exp-details-list">
+                                <li>Built Random Forest resume screening app with 85.8% accuracy.</li>
+                                <li>Implemented AI-powered real-time style transfer using TensorFlow Hub.</li>
+                                <li>Added resolution control for adjustable image quality outputs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRODUCTS / PROJECTS -->
+            <section id="products" class="products-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header reveal-blur">
+                        <div class="eyebrow">
+                            <span class="num">04</span><span class="rule"></span><span>Build Log</span>
+                        </div>
+                        <h2 class="section-title">Selected Works</h2>
+                    </div>
+
+                    <div class="projects-grid reveal-blur">
+                        <div class="project-card tilt-3d hover-target">
+                            <div class="tilt-inner">
+                                <div class="proj-header">
+                                    <span class="proj-tech">Agentic AI & Full Stack</span>
+                                    <h3 class="proj-title">ZeroReject</h3>
+                                </div>
+                                <p class="proj-desc">Built a full-stack AI interview platform that analyzes resumes and generates role-specific technical questions. Developed real-time speech-to-text and webcam-based interview simulations.</p>
+                                <div class="proj-tags">
+                                    <span>Next.js</span><span>React</span><span>Gemini AI</span><span>PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card tilt-3d hover-target">
+                            <div class="tilt-inner">
+                                <div class="proj-header">
+                                    <span class="proj-tech">Reinforcement Learning</span>
+                                    <h3 class="proj-title">RL Trading Platform</h3>
+                                </div>
+                                <p class="proj-desc">Designed a DRL-based trading platform supporting PPO, DQN, and A2C strategies for Indian equities. Built an interactive dashboard with LLM-powered trade rationale generation.</p>
+                                <div class="proj-tags">
+                                    <span>Python</span><span>React</span><span>FastAPI</span><span>Stable-Baselines3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card tilt-3d hover-target">
+                            <div class="tilt-inner">
+                                <div class="proj-header">
+                                    <span class="proj-tech">C++ Systems</span>
+                                    <h3 class="proj-title">Matching Engine</h3>
+                                </div>
+                                <p class="proj-desc">High-performance order matching system for crypto with FIFO algorithm. Implemented cache-efficient order book structures using Red-Black trees for O(1) cancel/execute.</p>
+                                <div class="proj-tags">
+                                    <span>C++</span><span>STL</span><span>Multithreading</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card tilt-3d hover-target">
+                            <div class="tilt-inner">
+                                <div class="proj-header">
+                                    <span class="proj-tech">AI / NLP</span>
+                                    <h3 class="proj-title">JurisMind</h3>
+                                </div>
+                                <p class="proj-desc">Integrated semantic search with automated summarization to deliver fast legal insights. Enabled multi-format document handling including PDF, DOCX, and URLs.</p>
+                                <div class="proj-tags">
+                                    <span>Streamlit</span><span>LangChain</span><span>Transformers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header reveal-blur" style="margin-top: 100px;">
+                        <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Other Projects</h2>
+                    </div>
+
+                    <div class="other-projects-grid reveal-blur">
+                        <div class="other-card hover-target">
+                            <span class="op-tag">Python, NumPy</span>
+                            <h4>VIX Estimation Calculator</h4>
+                            <p>Real-time volatility index calculation with live market data using CBOE methodology.</p>
+                        </div>
+                        <div class="other-card hover-target">
+                            <span class="op-tag">Scikit-Learn, RF</span>
+                            <h4>Delhi Traffic Prediction</h4>
+                            <p>ML model with MAE 0.01 for urban traffic forecasting and management systems.</p>
+                        </div>
+                        <div class="other-card hover-target">
+                            <span class="op-tag">Product, SQL</span>
+                            <h4>Hyperlocal Food App Strategy</h4>
+                            <p>Go-to-market product strategy with user acquisition metrics for a delivery platform.</p>
+                        </div>
+                        <div class="other-card hover-target">
+                            <span class="op-tag">SQL, Database</span>
+                            <h4>Train Reservation System</h4>
+                            <p>Optimized database design and query performance for high-throughput bookings.</p>
+                        </div>
+                        <div class="other-card hover-target">
+                            <span class="op-tag">Gen AI, LLMs</span>
+                            <h4>Arqvest - AI Assistant</h4>
+                            <p>AI-powered investment research tool with semantic search across financial docs.</p>
+                        </div>
+                        <div class="other-card hover-target">
+                            <span class="op-tag">Python, Speech</span>
+                            <h4>AudioText</h4>
+                            <p>Multi-language audio to text conversion utility with speaker diarization.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TOOLKIT & ACHIEVEMENTS -->
+            <section id="toolkit" class="toolkit-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header reveal-blur">
+                        <div class="eyebrow">
+                            <span class="num">05</span><span class="rule"></span><span>Toolkit & Milestones</span>
+                        </div>
+                        <h2 class="section-title">Capabilities</h2>
+                    </div>
+
+                    <div class="capabilities-pills reveal-blur">
+                        <span class="cap-pill">Python</span>
+                        <span class="cap-pill">C++</span>
+                        <span class="cap-pill">SQL</span>
+                        <span class="cap-pill">Machine Learning</span>
+                        <span class="cap-pill">Agentic AI & LLMs</span>
+                        <span class="cap-pill">Reinforcement Learning</span>
+                        <span class="cap-pill">NLP & RAGs</span>
+                        <span class="cap-pill">Quant Finance</span>
+                        <span class="cap-pill">React & Next.js</span>
+                        <span class="cap-pill">FastAPI & Streamlit</span>
+                        <span class="cap-pill">PostgreSQL</span>
+                        <span class="cap-pill">Docker & CI-CD</span>
+                    </div>
+                    
+                    <h2 class="section-title reveal-blur" style="margin-top: 80px; margin-bottom: 30px; font-size: clamp(2rem, 4vw, 3rem);">Achievements</h2>
+                    
+                    <div class="achievements-pills reveal-blur">
+                        <span class="ach-pill ach-star">★ Star Quant of the Month</span>
+                        <span class="ach-pill">National Runner-up - Quantalytics IIT Jodhpur</span>
+                        <span class="ach-pill">Excellence Award - ML Program IIT Guwahati</span>
+                        <span class="ach-pill">1744 Max LeetCode Rating</span>
+                        <span class="ach-pill">PPO Sr. AI Scientist - HCL Hackathon</span>
+                        <span class="ach-pill">National Winner - Veritas'23 IIM Calcutta</span>
+                        <span class="ach-pill">National Top 20 - Smart-Beta IIM Rohtak</span>
+                        <span class="ach-pill">Finalist - Impactify IIT BHU</span>
+                        <span class="ach-pill">Selected - Amazon ML Summer School</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROOTS (KASHI) -->
+            <section id="roots" class="roots-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header reveal-blur">
+                        <div class="eyebrow">
+                            <span class="num">06</span><span class="rule"></span><span>Philosophy</span>
+                        </div>
+                        <h2 class="section-title">Rooted in Kashi</h2>
+                    </div>
+                    
+                    <div class="split-layout reveal-blur">
+                        <div class="split-left">
+                            <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px;">Where Ancient Wisdom Meets Modern Innovation</h3>
+                            <p class="body-text italic-quote border-quote">"The city of Lord Shiva, the sacred Ganges, and IIT BHU — where I learned that true success comes from the fusion of discipline, devotion, and data."</p>
+                            
+                            <div class="roots-features">
+                                <div class="root-item"><span>ॐ</span> Blessed by Bholenath</div>
+                                <div class="root-item"><span>🏛️</span> IIT BHU Varanasi</div>
+                                <div class="root-item"><span>🌊</span> Banks of Ganga</div>
+                            </div>
+                        </div>
+                        <div class="split-right">
+                            <div class="portrait-container tilt-3d reveal-blur">
+                                <div class="tilt-inner" style="width: 100%; height: 100%;">
+                                    <img src="iitbhu.jpeg" alt="IIT BHU" class="portrait-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="contact-section section-detect panel">
+                <div class="content-container">
+                    <div class="section-header text-center reveal-blur">
+                        <div class="eyebrow justify-center">
+                            <span class="num">07</span><span class="rule"></span><span>Signal</span>
+                        </div>
+                        <h2 class="section-title text-center">LET'S BUILD<br><span class="italic-highlight">SOMETHING.</span></h2>
+                    </div>
+
+                    <div class="contact-links-grid reveal-blur">
+                        <a href="mailto:lakshya.aryan.cer22@iitbhu.ac.in" class="contact-link-item magnetic-btn">lakshya.aryan.cer22@iitbhu.ac.in</a>
+                        <a href="mailto:iitbhulakshya1@gmail.com" class="contact-link-item magnetic-btn">iitbhulakshya1@gmail.com</a>
+                        <a href="tel:+919897983015" class="contact-link-item magnetic-btn">+91 9897983015</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer reveal-blur">
+                <div class="footer-inner">
+                    <div class="footer-copy">© 2026 Lakshya Aryan. All rights reserved.</div>
+                    <div class="footer-social">
+                        <a href="https://github.com/Lakshya1726" target="_blank" class="magnetic-btn">GitHub</a>
+                        <a href="https://www.linkedin.com/in/lakshya-aryan-963115256/" target="_blank" class="magnetic-btn">LinkedIn</a>
+                    </div>
+                </div>
+            </footer>
+
         </div>
-        <div class="reveal-text-mask">
-            <p class="hero-subtitle reveal-text-inner">Data Scientist, AI Engineer & Quantitative Researcher pushing boundaries in Machine Learning and Finance.</p>
-        </div>
-        <div class="scroll-indicator">
-            SCROLL <div class="scroll-line"></div>
-        </div>
-    </section>
+    </main>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-heading">About</h2>
-            <div class="about-grid">
-                <div class="about-image" data-cursor="hover">
-                    <img src="lakshya.jpg" alt="Lakshya Aryan">
-                </div>
-                <div class="about-text">
-                    <p>I am a <span class="highlight">Data Scientist</span> and <span class="highlight">AI Engineer</span> currently pursuing my Bachelor of Technology at <span class="highlight">IIT (BHU) Varanasi</span> (2022-2026).</p>
-                    <p>My work bridges the gap between complex artificial intelligence systems and scalable enterprise solutions. From building AI-powered mock interview platforms to engineering low-latency quant trading algorithms, I thrive on solving difficult problems.</p>
-                    <br>
-                    <h3 style="margin-bottom: 20px; font-size: 1.5rem; letter-spacing: -0.5px;">EDUCATION</h3>
-                    <p style="font-size: 1.1rem; color: var(--text-white);"><strong>Indian Institute Of Technology Varanasi (BHU)</strong><br>
-                    <span style="color: var(--text-medium);">Bachelor of Technology | 2022 – 2026</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-heading">Experience</h2>
-            <div class="timeline">
-
-                <div class="timeline-item reveal-on-scroll">
-                    <div class="timeline-meta">
-                        <div class="timeline-date">Dec 2025 - Jan 2026</div>
-                        <div class="timeline-company">Ekam Internet LLP</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>AI Engineer Internship</h3>
-                        <ul>
-                            <li>Implemented AI-powered product features using Claude Code, completing assigned Jira tasks.</li>
-                            <li>Built full-stack integrations and automated workflows using Zapier and N8N across multiple business systems.</li>
-                            <li>Implemented Aadhaar verification, document processing pipelines, and scalable APIs for enterprise applications.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item reveal-on-scroll">
-                    <div class="timeline-meta">
-                        <div class="timeline-date">Jun 2025 - Sep 2025</div>
-                        <div class="timeline-company">AR Financial Securities</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Quantitative Researcher Internship</h3>
-                        <ul>
-                            <li>Enhanced option pricing accuracy using Variance Gamma model beyond Black-Scholes assumptions.</li>
-                            <li>Processed data for 2,500+ stocks and built analytical dashboards for market research and strategy evaluation.</li>
-                            <li>Developed a KAMA-based portfolio construction strategy across diversified equity universes.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item reveal-on-scroll">
-                    <div class="timeline-meta">
-                        <div class="timeline-date">May 2025 - Jun 2025</div>
-                        <div class="timeline-company">SPRINGPAD WEALTH</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Quantitative ML Developer Internship</h3>
-                        <ul>
-                            <li>Built machine learning models using Random Forest and XGBoost to predict Nifty and BankNifty movements.</li>
-                            <li>Designed and evaluated a Z-score based forecasting pipeline on Gold-Silver datasets spanning five years.</li>
-                            <li>Performed model validation and backtesting using risk-adjusted performance metrics and drawdown analysis.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item reveal-on-scroll">
-                    <div class="timeline-meta">
-                        <div class="timeline-date">Dec 2024 - Jan 2025</div>
-                        <div class="timeline-company">Gwing Software Technologies</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Product Analyst Intern</h3>
-                        <ul>
-                            <li>Analyzed user behavior using SQL & Python to identify key product pain points.</li>
-                            <li>Synthesized competitive analysis & 200+ user feedback for actionable insights.</li>
-                            <li>Built Tableau & Power BI dashboards tracking core KPIs for product decisions.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item reveal-on-scroll">
-                    <div class="timeline-meta">
-                        <div class="timeline-date">May 2024 - Jun 2024</div>
-                        <div class="timeline-company">NullClass Ed-Tech</div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Data Science Intern</h3>
-                        <ul>
-                            <li>Built Random Forest resume screening app with 85.8% accuracy.</li>
-                            <li>Implemented AI-powered real-time style transfer using TensorFlow Hub.</li>
-                            <li>Added resolution control for adjustable image quality outputs.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="work">
-        <div class="container">
-            <h2 class="section-heading">Selected Works</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card reveal-on-scroll" data-cursor="hover">
-                    <span class="project-tag">Agentic AI & Full Stack</span>
-                    <h3>ZeroReject: AI Mock Interview Platform</h3>
-                    <p>Built a full-stack AI interview platform that analyzes resumes and generates role-specific technical questions. Developed real-time speech-to-text and webcam-based interview simulations.</p>
-                    <div class="project-tech">
-                        <span>Next.js</span><span>React</span><span>Gemini AI</span><span>PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal-on-scroll" data-cursor="hover">
-                    <span class="project-tag">Reinforcement Learning</span>
-                    <h3>RL-Powered Trading Platform</h3>
-                    <p>Designed a DRL-based trading platform supporting PPO, DQN, and A2C strategies for Indian equities. Built an interactive dashboard with LLM-powered trade rationale generation.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>React</span><span>FastAPI</span><span>Stable-Baselines3</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal-on-scroll" data-cursor="hover">
-                    <span class="project-tag">C++ Systems</span>
-                    <h3>Low-Latency Trade Matching Engine</h3>
-                    <p>High-performance order matching system for crypto with FIFO algorithm. Implemented cache-efficient order book structures using Red-Black trees for O(1) cancel/execute.</p>
-                    <div class="project-tech">
-                        <span>C++</span><span>STL</span><span>Multithreading</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal-on-scroll" data-cursor="hover">
-                    <span class="project-tag">AI/NLP</span>
-                    <h3>JurisMind: Legal Document Analyser</h3>
-                    <p>Integrated semantic search with automated summarization to deliver fast legal insights. Enabled multi-format document handling including PDF, DOCX, and URLs.</p>
-                    <div class="project-tech">
-                        <span>Streamlit</span><span>LangChain</span><span>Transformers</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <h3 class="section-heading" style="margin-top: 100px; font-size: clamp(2rem, 4vw, 3rem); border-bottom: none;">Other Projects</h3>
-            <div class="projects-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
-                <div class="project-card reveal-on-scroll" style="padding: 30px;" data-cursor="hover">
-                    <span class="project-tag">Python, NumPy</span>
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">VIX Estimation Calculator</h4>
-                    <p style="font-size: 0.95rem;">Real-time volatility index calculation with live market data using CBOE methodology.</p>
-                </div>
-                <div class="project-card reveal-on-scroll" style="padding: 30px;" data-cursor="hover">
-                    <span class="project-tag">Scikit-Learn, RF</span>
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Delhi Traffic Prediction</h4>
-                    <p style="font-size: 0.95rem;">ML model with MAE 0.01 for urban traffic forecasting and management systems.</p>
-                </div>
-                <div class="project-card reveal-on-scroll" style="padding: 30px;" data-cursor="hover">
-                    <span class="project-tag">Product, SQL</span>
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Hyperlocal Food App Strategy</h4>
-                    <p style="font-size: 0.95rem;">Go-to-market product strategy with user acquisition metrics for a delivery platform.</p>
-                </div>
-                <div class="project-card reveal-on-scroll" style="padding: 30px;" data-cursor="hover">
-                    <span class="project-tag">SQL, Database</span>
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Train Reservation System</h4>
-                    <p style="font-size: 0.95rem;">Optimized database design and query performance for high-throughput bookings.</p>
-                </div>
-                <div class="project-card reveal-on-scroll" style="padding: 30px;" data-cursor="hover">
-                    <span class="project-tag">Gen AI, LLMs</span>
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Arqvest - AI Assistant</h4>
-                    <p style="font-size: 0.95rem;">AI-powered investment research tool with semantic search across financial docs.</p>
-                </div>
-                <div class="project-card reveal-on-scroll" style="padding: 30px;" data-cursor="hover">
-                    <span class="project-tag">Python, Speech</span>
-                    <h4 style="font-size: 1.5rem; margin-bottom: 10px;">AudioText</h4>
-                    <p style="font-size: 0.95rem;">Multi-language audio to text conversion utility with speaker diarization.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-heading">Capabilities</h2>
-            <div class="skills-container">
-                <div class="skill-tag reveal-on-scroll">Python</div>
-                <div class="skill-tag reveal-on-scroll">C++</div>
-                <div class="skill-tag reveal-on-scroll">Machine Learning</div>
-                <div class="skill-tag reveal-on-scroll">Agentic AI & LLMs</div>
-                <div class="skill-tag reveal-on-scroll">Reinforcement Learning</div>
-                <div class="skill-tag reveal-on-scroll">NLP & RAGs</div>
-                <div class="skill-tag reveal-on-scroll">Quant Finance</div>
-                <div class="skill-tag reveal-on-scroll">React & Next.js</div>
-                <div class="skill-tag reveal-on-scroll">FastAPI & Streamlit</div>
-                <div class="skill-tag reveal-on-scroll">PostgreSQL</div>
-                <div class="skill-tag reveal-on-scroll">Docker & CI-CD</div>
-                <div class="skill-tag reveal-on-scroll">SQL</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Divine Roots Section -->
-    <section id="roots" class="about" style="background: var(--bg-secondary); padding-bottom: 0;">
-        <div class="container">
-            <h2 class="section-heading" style="margin-bottom: 40px; border-bottom: none;">Rooted in Kashi</h2>
-            <div class="about-grid" style="align-items: start;">
-                <div class="about-text">
-                    <h3 style="font-size: 2rem; margin-bottom: 20px; font-weight: 500;">Where Ancient Wisdom Meets Modern Innovation</h3>
-                    <p style="font-size: 1.2rem; color: var(--text-light); font-style: italic; margin-bottom: 30px;">
-                        "The city of Lord Shiva, the sacred Ganges, and IIT BHU - where I learned that true success comes from the fusion of discipline, devotion, and data."
-                    </p>
-                    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px;">
-                        <div style="font-size: 1.1rem; border-left: 2px solid var(--text-medium); padding-left: 15px;">ॐ Blessed by Bholenath</div>
-                        <div style="font-size: 1.1rem; border-left: 2px solid var(--text-medium); padding-left: 15px;">🏛️ IIT BHU Varanasi</div>
-                        <div style="font-size: 1.1rem; border-left: 2px solid var(--text-medium); padding-left: 15px;">🌊 Banks of Ganga</div>
-                    </div>
-                </div>
-                <div class="about-image reveal-on-scroll" data-cursor="hover">
-                    <img src="iitbhu.jpeg" alt="IIT BHU & Mahakal">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <h2 class="section-heading">Achievements</h2>
-            <div class="skills-container">
-                <div class="skill-tag reveal-on-scroll" style="border-color: var(--accent-primary);">Star Quant of the Month</div>
-                <div class="skill-tag reveal-on-scroll">National Runner-up - Quantalytics IIT Jodhpur</div>
-                <div class="skill-tag reveal-on-scroll">Excellence Award - ML Program IIT Guwahati</div>
-                <div class="skill-tag reveal-on-scroll">1744 Max LeetCode Rating</div>
-                <div class="skill-tag reveal-on-scroll">PPO Sr. AI Scientist - HCL Hackathon</div>
-                <div class="skill-tag reveal-on-scroll">National Winner - Veritas'23 IIM Calcutta</div>
-                <div class="skill-tag reveal-on-scroll">National Top 20 - Smart-Beta IIM Rohtak</div>
-                <div class="skill-tag reveal-on-scroll">Finalist - Impactify IIT BHU</div>
-                <div class="skill-tag reveal-on-scroll">Selected - Amazon ML Summer School</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="contact-title reveal-on-scroll">LET'S BUILD <br>SOMETHING.</h2>
-            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;" class="reveal-on-scroll">
-                <a href="mailto:lakshya.aryan.cer22@iitbhu.ac.in" class="contact-link" style="font-size: 1.5rem;" data-cursor="hover">lakshya.aryan.cer22@iitbhu.ac.in</a>
-                <a href="mailto:iitbhulakshya1@gmail.com" class="contact-link" style="font-size: 1.5rem;" data-cursor="hover">iitbhulakshya1@gmail.com</a>
-                <a href="tel:+919897983015" class="contact-link" style="font-size: 1.5rem;" data-cursor="hover">+91 9897983015</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-copy">© 2026 Lakshya Aryan. All rights reserved.</div>
-        <div class="social-links">
-            <a href="https://github.com/Lakshya1726" target="_blank" data-cursor="hover">GITHUB</a>
-            <a href="https://www.linkedin.com/in/lakshya-aryan-963115256/" target="_blank" data-cursor="hover">LINKEDIN</a>
-        </div>
-    </footer>
-
-    <script src="script.js?v=2"></script>
+    <script src="script.js"></script>
 </body>
 </html>
